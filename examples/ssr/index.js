@@ -6,7 +6,7 @@ const app = express()
 
 app.get('*', (req, res) => {
   GetData()
-  res.send(`pythia Get Data`)
+  res.send(`Axios Get Data you can see in terminal`)
 })
 
 app.listen(port, () => console.log(`http://localhost:${port}`))

@@ -18233,7 +18233,7 @@ axios_1.default = _default;
 
 var axios = axios_1;
 
-var Api$1 = /*#__PURE__*/function () {
+var Api = /*#__PURE__*/function () {
   function Api() {
     _classCallCheck(this, Api);
 
@@ -18262,7 +18262,7 @@ var Api$1 = /*#__PURE__*/function () {
     key: "delete",
     value: function _delete(url) {
       var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-      return this.client.delete(url, config);
+      return this.client["delete"](url, config);
     }
   }, {
     key: "patch",
@@ -18279,19 +18279,12 @@ var Api$1 = /*#__PURE__*/function () {
   return Api;
 }();
 
-var api = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': Api$1
-});
-
-var Api = /*@__PURE__*/getAugmentedNamespace(api);
-
 var GetData = function GetData() {
   var apiInstance = new Api();
   apiInstance.get('/posts').then(function (_ref) {
     var data = _ref.data;
     console.log('Result Axios Get: ', data);
-  }).catch(function (error) {
+  })["catch"](function (error) {
     return console.log(error);
   });
 };

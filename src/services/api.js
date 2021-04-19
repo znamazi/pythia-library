@@ -1,5 +1,6 @@
-// import * as axios from 'axios'
+// import axios from 'axios'
 const axios = require('axios')
+
 class Api {
   constructor() {
     this.client = axios.create({

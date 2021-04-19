@@ -5,7 +5,7 @@ function App() {
   React.useEffect(() => {
     GetData()
   }, [])
-  return <div className="App">Pythia get Data check console</div>
+  return <div className="App">Axios get Data check console</div>
 }
 
 export default App
