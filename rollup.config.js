@@ -64,7 +64,22 @@ const serverConfig = {
 
     resolve(),
     json(),
-    babel({ babelHelpers: 'bundled' }),
+    babel({
+      babelrc: false,
+      exclude: 'node_modules/**',
+      babelHelpers: 'runtime',
+      presets: [
+        [
+          '@babel/preset-env'
+          // {
+          //   // modules: false,
+          //   useBuiltIns: 'usage',
+          //   corejs: '3'
+          // }
+        ]
+      ],
+      plugins: ['@babel/plugin-transform-runtime']
+    }),
     production && terser()
   ]
 }
@@ -79,7 +94,6 @@ const clientConfig = {
     {
       name: 'pythia',
       file: `${dist}/${bundle}.umd.js`,
-
       format: 'umd'
     }
   ],
@@ -89,10 +103,24 @@ const clientConfig = {
       transformMixedEsModules: true
     }),
     nodePolyfills(),
-
     resolve(),
     json(),
-    babel({ babelHelpers: 'bundled' }),
+    babel({
+      babelrc: false,
+      exclude: 'node_modules/**',
+      babelHelpers: 'runtime',
+      presets: [
+        [
+          '@babel/preset-env'
+          // {
+          //   // modules: false,
+          //   useBuiltIns: 'usage',
+          //   corejs: '3'
+          // }
+        ]
+      ],
+      plugins: ['@babel/plugin-transform-runtime']
+    }),
     production && terser()
   ]
 }

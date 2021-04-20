@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CDN Example</title>
-</head>
-<body>
-    <h2>See the reponse axios in console</h2>
+  </head>
+  <body>
+    <h2>Axios Reponse When Is Used In CDN:</h2>
+    <pre id="json"></pre>
 
     <script src="./node_modules/pythia/dist/bundle.umd.js"></script>
     <script>
-        const {GetData}=window.pythia
-        GetData()
+      const fetchData = async () => {
+        const { GetData } = window.pythia
+        const result = await GetData()
+        document.getElementById("json").textContent = JSON.stringify(result.data, undefined, 2);
+      }
+      fetchData()
     </script>
-</body>
+  </body>
 </html>
